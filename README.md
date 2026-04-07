@@ -1,2 +1,6 @@
-# csharp-expense-tracker
-Expense tracker created with C# 
+Expense tracker created with C#
+## RoadMap:
+- [ ] Add expenses
+- [ ] List expenses
+- [ ] Calculate total
+
