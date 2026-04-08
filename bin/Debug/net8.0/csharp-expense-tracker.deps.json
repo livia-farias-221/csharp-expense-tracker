@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "csharp-expense-tracker/1.0.0": {
+        "runtime": {
+          "csharp-expense-tracker.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "csharp-expense-tracker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

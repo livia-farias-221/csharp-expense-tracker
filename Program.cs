@@ -1,4 +1,4 @@
-﻿using System;
+﻿using csharp_expense_tracker;
 
 class Program
 {
@@ -9,6 +9,9 @@ class Program
         Console.WriteLine("Qual o seu nome?");
         string nomeUsuario = Console.ReadLine();
         Console.WriteLine("Rastreador de despesas de " + nomeUsuario);
+
+        Despesas despesas = new Despesas();
+        despesas.MostrarMenuCategorias();
 
     }
 }
