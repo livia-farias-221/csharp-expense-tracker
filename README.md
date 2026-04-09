@@ -1,3 +1,4 @@
+Projeto em andamento.
 Expense tracker created with C#
 ## RoadMap:
 - [ ] Add expenses
