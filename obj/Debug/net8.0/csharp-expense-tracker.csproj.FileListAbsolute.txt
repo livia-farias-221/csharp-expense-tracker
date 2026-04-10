@@ -1,0 +1,15 @@
+/home/livia/project-exepense-tracker/csharp-expense-tracker/bin/Debug/net8.0/csharp-expense-tracker
+/home/livia/project-exepense-tracker/csharp-expense-tracker/bin/Debug/net8.0/csharp-expense-tracker.deps.json
+/home/livia/project-exepense-tracker/csharp-expense-tracker/bin/Debug/net8.0/csharp-expense-tracker.runtimeconfig.json
+/home/livia/project-exepense-tracker/csharp-expense-tracker/bin/Debug/net8.0/csharp-expense-tracker.dll
+/home/livia/project-exepense-tracker/csharp-expense-tracker/bin/Debug/net8.0/csharp-expense-tracker.pdb
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.GeneratedMSBuildEditorConfig.editorconfig
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.AssemblyInfoInputs.cache
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.AssemblyInfo.cs
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.csproj.CoreCompileInputs.cache
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.sourcelink.json
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.dll
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/refint/csharp-expense-tracker.dll
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.pdb
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/csharp-expense-tracker.genruntimeconfig.cache
+/home/livia/project-exepense-tracker/csharp-expense-tracker/obj/Debug/net8.0/ref/csharp-expense-tracker.dll
