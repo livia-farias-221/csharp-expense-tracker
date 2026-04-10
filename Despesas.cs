@@ -93,21 +93,24 @@ public class Despesas
             Console.WriteLine("Digite o nome da categoria");
             opcao_categoria = Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine("Agora informe o nome da despesa.");
-            
-            nome_despesa = Console.ReadLine();
-            Console.WriteLine();
-            Console.WriteLine("Agora informe o valor da despesa.");
-            
-            valor_despesa = Console.ReadLine();
-            //lista_nome_valor.Add(nome_despesa,valor_despesa);
-            Console.WriteLine();
+
             if (!gastosDicionario.ContainsKey(opcao_categoria))
             {
                 Console.WriteLine("Categoria não existe");
                 continue;
             }
-            gastosDicionario[opcao_categoria].Add($"{nome_despesa} - {valor_despesa}");
+
+            
+            Console.WriteLine("Agora informe o nome da despesa.");
+            nome_despesa = Console.ReadLine();
+            Console.WriteLine();
+            
+            Console.WriteLine("Agora informe o valor da despesa.");
+            valor_despesa = Console.ReadLine();
+            //lista_nome_valor.Add(nome_despesa,valor_despesa);
+            Console.WriteLine();
+            
+                        gastosDicionario[opcao_categoria].Add($"{nome_despesa} - {valor_despesa}");
 
             Console.WriteLine("Gostaria de adicionar mais algum gasto? (S|N)");
             opcao2 = Console.ReadLine();
@@ -142,8 +145,8 @@ public class Despesas
         
         
 
-
-    
+      Console.WriteLine();
+      Console.WriteLine("Seus gastos:");
       foreach (var categoria in gastosDicionario)
     {
         Console.WriteLine($"Categoria: {categoria.Key}");
