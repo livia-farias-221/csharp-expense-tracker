@@ -23,7 +23,7 @@ class Program
        
 
         Despesas despesas = new Despesas();
-        despesas.MostrarMenuCategorias();
+        despesas.AdicionarDespesas();
 
     }
 }
