@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Despesas
 {
-    public void MostrarMenuCategorias(){
+    public void AdicionarDespesas(){
 
     Dictionary<string,List<string>> gastosDicionario = new Dictionary<string, List<string>>() ;
     string opcao = "";
