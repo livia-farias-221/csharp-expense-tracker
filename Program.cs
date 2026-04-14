@@ -23,7 +23,13 @@ class Program
        
 
         Despesas despesas = new Despesas();
-        despesas.AdicionarDespesas();
+        var gastosDicionario =  despesas.AdicionarDespesas();
+
+        GerenciadorDespesas gerenciador = new GerenciadorDespesas();
+        gerenciador.ManipularDespesas(gastosDicionario);
+
+
+
 
     }
 }
