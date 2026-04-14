@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Despesas
 {
-    public void AdicionarDespesas(){
+    public Dictionary<string, List<string>> AdicionarDespesas(){
 
     Dictionary<string,List<string>> gastosDicionario = new Dictionary<string, List<string>>() ;
     string opcao = "";
@@ -157,6 +157,7 @@ public class Despesas
         
     }
     
+     return gastosDicionario;
  
     }
 
