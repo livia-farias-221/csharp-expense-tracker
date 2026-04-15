@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("csharp-expense-tracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5221a65979661781af3d697459bec1377b267068")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d89523dcf6893c809604c3261239263a6e3e5a6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("csharp-expense-tracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csharp-expense-tracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class Despesas
 {
-    public Dictionary<string, List<string>> AdicionarDespesas(){
+    public Dictionary<string, List<(string Nome, decimal Valor)>> AdicionarDespesas(){
 
-    Dictionary<string,List<string>> gastosDicionario = new Dictionary<string, List<string>>() ;
+    Dictionary<string,List<(string Nome, decimal Valor)>> gastosDicionario = new Dictionary<string, List<(string Nome, decimal Valor)>>() ;
     string opcao = "";
 
     Console.WriteLine("Primeiro vamos categorizar suas despesas.");
@@ -19,7 +19,7 @@ public class Despesas
         {
         
             Console.WriteLine("Qual categoria você gostaria de adicionar?");
-            Console.WriteLine("Exemplos:\n 1.Transporte\n 2.Alimentação\n 3.Hobbies\n 4.Saúde\n 5.Entretenimento\n 6.Beleza");
+            Console.WriteLine("Exemplos:\n•Transporte\n•Alimentação\n•Hobbies\n•Saúde\n•Entretenimento\n•Beleza");
             Console.WriteLine();
         
             Console.WriteLine("Digite o nome da categoria: ");
@@ -33,7 +33,7 @@ public class Despesas
                 continue;
             }
 
-            gastosDicionario[categoria] = new List<string>();
+            gastosDicionario[categoria] = new List<(string Nome, decimal Valor)>();
             
             Console.WriteLine("Gostaria de adicionar mais uma categoria? (S/N)");
             opcao = Console.ReadLine() ?? "";
@@ -83,7 +83,7 @@ public class Despesas
         string opcao2 = "";
         string opcao_categoria = "";
         string nome_despesa = "";
-        string valor_despesa = "";
+        decimal valor_despesa = 0;
         //List<string> lista_nome_valor = new List<string>();
 
         while (true)
@@ -106,11 +106,11 @@ public class Despesas
             Console.WriteLine();
             
             Console.WriteLine("Agora informe o valor da despesa.");
-            valor_despesa = Console.ReadLine();
-            //lista_nome_valor.Add(nome_despesa,valor_despesa);
+            valor_despesa = decimal.Parse(Console.ReadLine());
+            
             Console.WriteLine();
             
-                        gastosDicionario[opcao_categoria].Add($"{nome_despesa} - {valor_despesa}");
+            gastosDicionario[opcao_categoria].Add((nome_despesa, valor_despesa));
 
             Console.WriteLine("Gostaria de adicionar mais algum gasto? (S|N)");
             opcao2 = Console.ReadLine();
@@ -152,7 +152,7 @@ public class Despesas
         Console.WriteLine($"Categoria: {categoria.Key}");
             foreach (var gasto in categoria.Value)
             {
-                Console.WriteLine($"Gastos: {gasto}");
+                Console.WriteLine($"{gasto.Nome} : R$ {gasto.Valor:F2}");
             }
         
     }
