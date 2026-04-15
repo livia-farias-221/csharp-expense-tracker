@@ -10,12 +10,13 @@ public class GerenciadorDespesas{
     string opcaoMenu = "";
     string opcaoSomar = "";
     string selecionarCategoria = "";
+    decimal somarGastosGerais = 0;
     
     while (true)
 
     {
         Console.WriteLine("O que deseja fazer agora?");
-        Console.WriteLine("1-Listar despesas por categoria\n2-Excluir despesa\n3-Excluir categoria\n4-Editar nome de uma categoria\n5-Editar valor de um gasto\n6-Excluir um gasto\n7-Encerrar");
+        Console.WriteLine("1-Listar e somar despesas por categoria\n2-Somar em geral\n3-Excluir despesa\n4-Excluir categoria\n5-Editar nome de uma categoria\n6-Editar valor de um gasto\n7-Excluir um gasto\n8-Encerrar");
         Console.WriteLine("Digite o número da opção: ");
         opcaoMenu = Console.ReadLine();
         
@@ -62,7 +63,28 @@ public class GerenciadorDespesas{
 
         }
 
-        else if (opcaoMenu == "7"){
+        else if (opcaoMenu =="2"){
+                
+                foreach (var listaDespesas in gastosDicionario.Values)
+                {   
+                    foreach(var despesa in listaDespesas)
+                    {
+                        somarGastosGerais += despesa.Valor;
+                    }
+
+                    }
+
+                    Console.WriteLine($"Valor total das despesas: {somarGastosGerais}");
+                    continue;
+                    
+
+                }
+
+               
+
+        
+
+        else if (opcaoMenu == "8"){
             Console.WriteLine("Encerrando...");
             break;
         }
@@ -76,6 +98,6 @@ public class GerenciadorDespesas{
     }
 
     }
-
 }
+
 
