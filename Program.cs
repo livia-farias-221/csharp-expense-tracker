@@ -41,6 +41,7 @@ class Program
         
             Console.WriteLine("Digite o nome da categoria: ");
             string categoria = Console.ReadLine();
+            categoria = categoria.ToUpper();
             Console.WriteLine();
 
             if (string.IsNullOrEmpty(categoria))
@@ -113,6 +114,7 @@ class Program
             
             Console.WriteLine("Digite o nome da categoria");
             opcao_categoria = Console.ReadLine();
+            opcao_categoria = opcao_categoria.ToUpper();
             Console.WriteLine();
 
             if (!gastosDicionario.ContainsKey(opcao_categoria))
@@ -124,10 +126,12 @@ class Program
             
             Console.WriteLine("Agora informe o nome da despesa.");
             nome_despesa = Console.ReadLine();
+            nome_despesa = nome_despesa.ToLower();
             Console.WriteLine();
             
             Console.WriteLine("Agora informe o valor da despesa.");
             valor_despesa = decimal.Parse(Console.ReadLine());
+            
             
             Console.WriteLine();
             
@@ -192,7 +196,7 @@ class Program
 
     {
         Console.WriteLine("O que deseja fazer agora?");
-        Console.WriteLine("1-Listar e somar despesas por categoria\n2-Somar em geral\n3-Excluir despesa\n4-Excluir categoria\n5-Editar nome de uma categoria\n6-Editar valor de um gasto\n7-Excluir um gasto\n8-Encerrar");
+        Console.WriteLine("1-Listar e somar despesas por categoria\n2-Somar em geral\n3-Excluir despesa\n4-Excluir categoria\n5-Editar nome de uma categoria\n6-Editar valor de um gasto\n7-Encerrar");
         Console.WriteLine("Digite o número da opção: ");
         opcaoMenu = Console.ReadLine();
         
@@ -209,6 +213,7 @@ class Program
             Console.WriteLine();
             Console.WriteLine("Digite o nome da categoria: ");
             selecionarCategoria = Console.ReadLine();
+            selecionarCategoria = selecionarCategoria.ToUpper();
             
             if (!gastosDicionario.ContainsKey(selecionarCategoria))
             {
@@ -261,7 +266,7 @@ class Program
 
                     }
 
-                    Console.WriteLine($"Valor total das despesas: {somarGastosGerais}");
+                    Console.WriteLine($"Valor total das despesas: R$ {somarGastosGerais}");
                     continue;
                     
 
@@ -269,7 +274,7 @@ class Program
 
         else if (opcaoMenu == "3")
         {
-            Console.WriteLine("Catgeroias que você adicionou:");
+            Console.WriteLine("Categorias que você adicionou:");
             foreach (string categoria in gastosDicionario.Keys)
                 {
                     Console.WriteLine((categoria));
@@ -280,10 +285,11 @@ class Program
             Console.WriteLine();
             Console.WriteLine("Digite o nome da categoria: ");
             selecionarCategoriaDeletar = Console.ReadLine();
+            selecionarCategoriaDeletar = selecionarCategoriaDeletar.ToUpper();
 
             if (!gastosDicionario.ContainsKey(selecionarCategoriaDeletar)){
                 Console.WriteLine("Essa categoria não existe. Por favor, tente novamente");
-                return;
+                continue;
             }
 
             else
@@ -291,18 +297,19 @@ class Program
                 Console.WriteLine("Gastos nessa categoria");
                 
                 foreach (var gasto in gastosDicionario[selecionarCategoriaDeletar]){
-                    Console.WriteLine($"{gasto}");
+                    Console.WriteLine($" {gasto}");
                 }
 
                 Console.WriteLine("Digite o nome do gasto que deseja deletar:");
                 gastoDeletar = Console.ReadLine();
+                gastoDeletar = gastoDeletar.ToLower();
 
                 var lista = gastosDicionario[selecionarCategoriaDeletar];
                 var gastoParaRemover = lista.FirstOrDefault(g => g.Nome == gastoDeletar);
 
                 if (gastoParaRemover.Nome == null){
                     Console.WriteLine("Gasto não encontrado");
-                    return;
+                    continue;
                 }
 
                 else{
@@ -318,11 +325,31 @@ class Program
             }
         }
 
+        else if (opcaoMenu == "4")
+        {
+            string categoriaRemover = "";
+            Console.WriteLine("Digite o nome da categoria que deseja excluir: ");
+            Console.WriteLine("Observação: todos os gastos também serão excluídos.");
+            categoriaRemover = Console.ReadLine();
+            categoriaRemover = categoriaRemover.ToUpper();
+
+            if (!gastosDicionario.ContainsKey(categoriaRemover)){
+                Console.WriteLine("Categoria não existe! Por favor digite novamente.");
+                continue;
+            }
+
+            else
+            {
+                gastosDicionario.Remove(categoriaRemover);
+                Console.WriteLine("Categoria removida.");
+            }
+
+        }
                
 
         
 
-        else if (opcaoMenu == "8"){
+        else if (opcaoMenu == "7"){
             Console.WriteLine("Encerrando...");
             break;
         }
