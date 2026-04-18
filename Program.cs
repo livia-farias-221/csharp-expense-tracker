@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -88,9 +89,25 @@ class Program
 
     //Início adicionar gastos
 
-        Console.WriteLine("Agora vamos adicionar seus gastos");
-        Console.WriteLine();
-        Console.WriteLine("Categorias que você adicionou:");
+        
+        
+        string opcao2 = "";
+        string opcao_categoria = "";
+        string nome_despesa = "";
+        decimal valor_despesa = 0;
+        string opcaoDespesa = "";
+        
+
+        while (true)
+        {   Console.WriteLine("Gostaria de adicionar uma despesa (S/N)?");
+            opcaoDespesa = Console.ReadLine();
+            opcaoDespesa = opcaoDespesa.ToUpper();
+
+            if (opcaoDespesa == "S")
+            {
+            Console.WriteLine("Adicionar seus gastos");
+            Console.WriteLine();
+            Console.WriteLine("Categorias que você adicionou:");
     
         
         foreach (string categoria in gastosDicionario.Keys)
@@ -101,16 +118,6 @@ class Program
         }
         
         Console.WriteLine();
-        
-        string opcao2 = "";
-        string opcao_categoria = "";
-        string nome_despesa = "";
-        decimal valor_despesa = 0;
-        
-
-        while (true)
-        {
-
             
             Console.WriteLine("Digite o nome da categoria");
             opcao_categoria = Console.ReadLine();
@@ -123,47 +130,87 @@ class Program
                 continue;
             }
 
-            
-            Console.WriteLine("Agora informe o nome da despesa.");
-            nome_despesa = Console.ReadLine();
-            nome_despesa = nome_despesa.ToLower();
-            Console.WriteLine();
-            
-            Console.WriteLine("Agora informe o valor da despesa.");
-            valor_despesa = decimal.Parse(Console.ReadLine());
-            
-            
-            Console.WriteLine();
-            
-            gastosDicionario[opcao_categoria].Add((nome_despesa, valor_despesa));
+            else{
+                     
+                Console.WriteLine("Agora informe o nome da despesa.");
+                nome_despesa = Console.ReadLine();
+                nome_despesa = nome_despesa.ToLower();
+                Console.WriteLine();
+                
+                Console.WriteLine("Agora informe o valor da despesa.\nObs: utilize apenas números e, se for digitar casas decimais, utilize ponto (.) ao invés de vírgula (,)");
+                valor_despesa = decimal.Parse(Console.ReadLine());
+                
+                
+                Console.WriteLine();
+                
+                gastosDicionario[opcao_categoria].Add((nome_despesa, valor_despesa));
+                while (true)
+                {
+                    Console.WriteLine("Gostaria de adicionar mais algum gasto nessa categoria? (S|N)");
+                    opcao2 = Console.ReadLine();
+                    opcao2 = opcao2.ToUpper();
 
-            Console.WriteLine("Gostaria de adicionar mais algum gasto? (S|N)");
-            opcao2 = Console.ReadLine();
-            opcao2 = opcao2.ToUpper();
+                    if (opcao2 == "N")
+                    {   Console.WriteLine("Você será redirecionado para adicionar em outra categoria ou para ir para o próximo menu de opções");
+                        break;
+                    }
 
-            if (opcao2 == "N")
-            {
+                    else if (string.IsNullOrEmpty(opcao2))
+                    {
+                        Console.WriteLine("Por favor digite uma opção");
+                        Console.WriteLine();
+                    }
+
+                    else if (opcao2 == "S")
+                    {
+                       Console.WriteLine("Informe o nome da despesa.");
+                        nome_despesa = Console.ReadLine();
+                        nome_despesa = nome_despesa.ToLower();
+                        Console.WriteLine();
+                        
+                        Console.WriteLine("Informe o valor da despesa.");
+                        valor_despesa = decimal.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        
+                        gastosDicionario[opcao_categoria].Add((nome_despesa, valor_despesa));
+                        continue;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Por favor digite uma opção válida");
+                        continue;
+                    }
+
+                    }
+                    
+
+                    
+
+            }
+
+       
+            }
+
+            else if (opcaoDespesa == "N"){
                 break;
             }
 
-            else if (string.IsNullOrEmpty(opcao2))
+            else if (string.IsNullOrEmpty(opcaoDespesa))
             {
                 Console.WriteLine("Por favor digite uma opção");
-                Console.WriteLine();
-            }
-
-            else if (opcao2 == "S")
-            {
-                Console.WriteLine();
                 continue;
             }
 
             else
             {
-                Console.WriteLine("Por favor digite uma opção válida");
+                Console.WriteLine("Opção inválida. Por favor tente novamente.");
                 continue;
             }
-
+            {
+                
+            }
+            
             
         }
 
@@ -196,7 +243,7 @@ class Program
 
     {
         Console.WriteLine("O que deseja fazer agora?");
-        Console.WriteLine("1-Listar e somar despesas por categoria\n2-Somar em geral\n3-Excluir despesa\n4-Excluir categoria\n5-Editar nome de uma categoria\n6-Editar valor de um gasto\n7-Encerrar");
+        Console.WriteLine("1-Listar e somar despesas por categoria\n2-Somar em geral\n3-Excluir despesa\n4-Excluir categoria\n5-Encerrar");
         Console.WriteLine("Digite o número da opção: ");
         opcaoMenu = Console.ReadLine();
         
@@ -226,7 +273,7 @@ class Program
                 Console.WriteLine($"{gasto.Nome} : R$ {gasto.Valor}");
             }
 
-                Console.WriteLine("Gostaria de soma as despesas dessa categoria? (S/N)");
+                Console.WriteLine("Gostaria de somar as despesas dessa categoria? (S/N)");
                 opcaoSomar = Console.ReadLine();
                 opcaoSomar = opcaoSomar.ToUpper();
 
@@ -327,6 +374,15 @@ class Program
 
         else if (opcaoMenu == "4")
         {
+            Console.WriteLine("Categorias que você adicionou:");
+            foreach (string categoria in gastosDicionario.Keys)
+                {
+                    Console.WriteLine((categoria));
+
+                    
+                }
+        
+
             string categoriaRemover = "";
             Console.WriteLine("Digite o nome da categoria que deseja excluir: ");
             Console.WriteLine("Observação: todos os gastos também serão excluídos.");
@@ -349,7 +405,7 @@ class Program
 
         
 
-        else if (opcaoMenu == "7"){
+        else if (opcaoMenu == "5"){
             Console.WriteLine("Encerrando...");
             break;
         }
@@ -357,7 +413,7 @@ class Program
         else
         {
             //Console.WriteLine("Opção Inválida! Por favor digite novamente")
-            break;
+            continue;
         }
         
     }
